@@ -1,9 +1,14 @@
 import React from 'react';
 
+import './app.css';
+
+import Navbar from '../navbar';
+
 function App() {
   return (
     <div className="App">
-      <h1>Reduce, Reuse, Recycle at Home</h1>
+      <Navbar />
+      <h1>at Home</h1>
     </div>
   );
 }
