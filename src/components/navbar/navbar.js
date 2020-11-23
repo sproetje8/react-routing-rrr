@@ -2,22 +2,21 @@ import React from 'react';
 
 import './navbar.css';
 
+import { Link } from 'react-router-dom';
+
 const Navbar = () => {
-  const itemNames = ['reduce', 'reuse', 'recycle'];
-
-  const items = itemNames.map((itemName) => {
-    const link = `/${itemName}`;
-    const label = itemName[0].toUpperCase() + itemName.slice(1);
-
-    return (
-    <li className="navbar__item" key={itemName}>
-        <a className="navbar__link" href={link}>{label}</a>
-      </li>
-    )
-  });
+  
   return (
     <ul className="navbar">
-      {items}
+      <li className="navbar__item" key="reduce">
+        <Link className="navbar__link" to="/reduce">Reduce</Link>
+      </li>
+      <li className="navbar__item" key="reuse">
+        <Link className="navbar__link" to="/reuse">Reuse</Link>
+      </li>
+      <li className="navbar__item" key="recycle">
+        <Link className="navbar__link" to="/recycle">Recycle</Link>
+      </li>
     </ul>
   );
 };
