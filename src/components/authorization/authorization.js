@@ -1,0 +1,19 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+import './authorization.css';
+
+const Authorization = () => {
+  return (
+    <div className="authorization">
+      <Link className="authorization__link" to="/">
+        Login
+      </Link>
+      <Link className="authorization__link" to="/">
+        Secret
+      </Link>
+    </div>
+  )
+};
+
+export default Authorization;

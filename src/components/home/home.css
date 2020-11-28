@@ -1,0 +1,38 @@
+.home {
+  grid-area: home;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  box-sizing: border-box;
+  font-size: 6vw;
+}
+
+.home__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 60%;
+  height: 36%;
+}
+
+.fa-home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+.fa-home::before {
+  color: inherit;
+  width: 90%;
+  height: 90%;
+  font-size: 5vw;
+}
