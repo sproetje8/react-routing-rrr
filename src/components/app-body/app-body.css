@@ -1,4 +1,5 @@
 .app-body {
   color: black;
-  padding: 5%;
+  padding: 2vw;
+  box-sizing: border-box;
 }

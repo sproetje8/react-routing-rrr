@@ -2,11 +2,12 @@ import React from 'react';
 
 import './app.css';
 
-import SiteHeader from '../site-header';
+import AppHeader from '../app-header';
 import AppBody from '../app-body';
 import ReducePage from '../reduce-page';
 import ReusePage from '../reuse-page';
 import RecyclePage from '../recycle-page';
+import AppFooter from '../app-footer';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
@@ -14,7 +15,7 @@ function App() {
   return (
     <Router>
       <div className="app">
-        <SiteHeader />
+        <AppHeader />
         <AppBody>
           <Route
             path="/"          
@@ -24,6 +25,7 @@ function App() {
           <Route path="/reuse" component={ReusePage} />
           <Route path="/recycle" component={RecyclePage} />
         </AppBody>
+        <AppFooter />
       </div>
     </Router>
   );
