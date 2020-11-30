@@ -1,0 +1,20 @@
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 100vw;
+  color: green;
+}
+
+.row__header {
+  font-size: 3vw;
+  font-weight: bold;
+  width: 20%;
+  cursor: pointer;
+}
+
+.row__text {
+  width: 70%;
+  font-size: 2vw;
+  padding-top: 2.1vw;
+}

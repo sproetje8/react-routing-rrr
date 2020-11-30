@@ -8,7 +8,7 @@ const Home = () => {
     <div className="home">
       &#64;&nbsp;
       <Link className="home__link" to="/">
-        <i class="fa fa-home"></i>
+        <i className="fa fa-home"></i>
       </Link>
     </div>
   );

@@ -4,6 +4,7 @@ import './app.css';
 
 import AppHeader from '../app-header';
 import AppBody from '../app-body';
+import HomePage from '../pages/home-page';
 import ReducePage from '../reduce-page';
 import ReusePage from '../reuse-page';
 import RecyclePage from '../recycle-page';
@@ -20,7 +21,7 @@ function App() {
           <Route
             path="/"          
             exact
-            render={() => <h2 className="app-body__header">Welcome to Evelien's RRR site.</h2>} />
+            render={() => <HomePage />} />
           <Route path="/reduce" component={ReducePage} />
           <Route path="/reuse" component={ReusePage} />
           <Route path="/recycle" component={RecyclePage} />
