@@ -1,0 +1,8 @@
+.text {
+  display: flex;
+  justify-content: center;
+  font-size: 2vw;
+  font-weight: normal;
+  color: darkslategrey;
+  padding: 3vw 15vw;
+}
