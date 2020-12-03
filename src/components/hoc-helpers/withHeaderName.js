@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 
-const withToggle = (View) => {
+const withHeaderName = (View) => {
   return class extends Component {
     constructor(props) {
       super(props);
       this.state = {
-          headerName: '',
-          setHeaderName: this.setHeaderName
+          controlHeader: '',
+          setControlHeader: this.setControlHeader
         };
     }
   
-    setHeaderName = (event, headerName) => {
+    setControlHeader = (event, controlHeader) => {
       this.setState({
-        headerName,
+        controlHeader,
       });
     };
   
@@ -22,4 +22,4 @@ const withToggle = (View) => {
   }
 };
 
-export default withToggle;
+export default withHeaderName;

@@ -8,6 +8,7 @@ import HomePage from '../pages/home-page';
 import ReducePage from '../pages/reduce-page';
 import ReusePage from '../pages/reuse-page';
 import RecyclePage from '../pages/recycle-page';
+import Text from '../text';
 import AppFooter from '../app-footer';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -15,16 +16,47 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 function App() {
   return (
     <Router>
-      <div className="app">
+      <div className='app'>
         <AppHeader />
         <AppBody>
           <Route
-            path="/"          
+            path='/'          
             exact
             render={() => <HomePage />} />
-          <Route path="/reduce" component={ReducePage} />
-          <Route path="/reuse" component={ReusePage} />
-          <Route path="/recycle" component={RecyclePage} />
+          <Route 
+            path='/reduce'
+            component={ReducePage}
+          />
+          <Route 
+            path='/reduce/:id'
+            render={({match}) => {
+              console.log(match);
+              const { id } = match.params;
+              return (
+                <Text 
+                  pageName='reduce'
+                  controlHeader={id} />);
+            }} />
+          <Route
+            path='/reuse'
+            component={ReusePage}
+            exact />
+          <Route 
+            path='/reuse/:id'
+            render={({match}) => {
+              const { id } = match.params;
+              return <Text pageName='reduce' controlHeader={id} />;
+            }} />
+          <Route 
+            path='/recycle'
+            component={RecyclePage}
+            exact />
+          <Route 
+            path='/recycle/:id'
+            render={({match}) => {
+              const { id } = match.params;
+              return <Text pageName='recycle' controlHeader={id} />;
+            }} />
         </AppBody>
         <AppFooter />
       </div>

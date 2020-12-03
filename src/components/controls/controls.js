@@ -1,26 +1,27 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import './controls.css';
+import data from '../../data';
 
-const Controls = ({ pageName, setHeaderName }) => {
-  const controlHeaders = ['What?', 'How?', 'More Information'];
+const Controls = ({ pageName, history }) => {
+  const controlHeaders = Object.keys(data[pageName]);
+  
   const controlItems = controlHeaders.map((header) => {
-    const headerName = header.toLowerCase().replace('?', '').replace(' ', '-');
-    const to = `/${pageName}/${headerName}`;
-    
+    const controlHeader = header.toLowerCase().replace('?', '').replace(' ', '-');
+        
     return (
-      <li key={header} className='controls__item'>
-        <Link
-          to={to} 
-          className='controls__link' 
-          onClick={(event) => setHeaderName(event,headerName)}
-        >
-          {header}
-        </Link>
+      <li 
+        key={header}
+        className='controls__item'
+        onClick={() => {
+          history.push(`/${pageName}/${controlHeader}`)
+        }}
+      >
+        {header}
       </li>
     );
-  });
+    });
 
   return (
     <nav className='controls'>
@@ -29,4 +30,4 @@ const Controls = ({ pageName, setHeaderName }) => {
   );
 };
 
-export default Controls;
+export default withRouter(Controls);
