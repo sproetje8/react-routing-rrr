@@ -10,10 +10,9 @@ import { ReusePage } from '../pages';
 import { RecyclePage } from '../pages';
 import { LoginPage } from '../pages';
 import { SecretPage } from '../pages';
-import Text from '../text';
 import AppFooter from '../app-footer';
 
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 class App extends Component {
   state = {
@@ -32,33 +31,26 @@ class App extends Component {
         <div className='app'>
           <AppHeader />
           <AppBody>
-            <Route 
-              path='/'          
-              exact
-              render={() => <HomePage />} />
-            <Route path='/reduce/:id?' component={ReducePage} />
-            <Route path='/reuse' component={ReusePage} />
-            <Route path='/reuse/:id'
-              render={({match}) => {
-                const { id } = match.params;
-                return <Text pageName='reuse' controlHeader={id} />;
-              }} />
-            <Route path='/recycle' component={RecyclePage} />
-            <Route path='/recycle/:id'
-              render={({match}) => {
-                const { id } = match.params;
-                return <Text pageName='recycle' controlHeader={id} />;
-              }} />
-            <Route 
-              path='/login'
-              render={() => { 
-                return <LoginPage 
-                          isLoggedIn={isLoggedIn}
-                          onLogin={() => {this.onLogin()}} />; }} 
-                       />
-            <Route 
-              path='/secret'
-              render={() => { return <SecretPage isLoggedIn={isLoggedIn} />; }} />
+            <Switch>
+              <Route 
+                path='/'          
+                exact
+                render={() => <HomePage />} />
+              <Route path='/reduce/:id?' component={ReducePage} />
+              <Route path='/reuse/:id?' component={ReusePage} />
+              <Route path='/recycle/:id?' component={RecyclePage} />
+              <Route 
+                path='/login'
+                render={() => { 
+                  return <LoginPage 
+                            isLoggedIn={isLoggedIn}
+                            onLogin={() => {this.onLogin()}} />; }} 
+                        />
+              <Route 
+                path='/secret'
+                render={() => { return <SecretPage isLoggedIn={isLoggedIn} />; }} />
+              <Route render={() => <h2>Page not found!</h2>} />
+            </Switch>
           </AppBody>
           <AppFooter />
         </div>
