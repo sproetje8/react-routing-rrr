@@ -23,12 +23,7 @@ function App() {
             path='/'          
             exact
             render={() => <HomePage />} />
-          <Route path='/reduce' component={ReducePage} />
-          <Route path='/reduce/:id'
-            render={({match}) => {
-              const { id } = match.params;
-              return (<Text pageName='reduce' controlHeader={id} />);
-            }} />
+          <Route path='/reduce/:id?' component={ReducePage} />
           <Route path='/reuse' component={ReusePage} />
           <Route path='/reuse/:id'
             render={({match}) => {

@@ -1,19 +1,23 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 import PageHeader from '../page-header';
 import Controls from '../controls';
+import Text from '../text';
 import withHeaderName from '../hoc-helpers/withHeaderName';
 
-const ReducePage = () => {
+const ReducePage = ({ match }) => {
   const headerText = 'Let\'s reduce waste!';
   const pageName = 'reduce';
+  const { id } = match.params;
 
   return (
     <>
       <PageHeader headerText={headerText} />
       <Controls pageName={pageName} />
+      <Text pageName={pageName} controlHeader={id} />
     </>
   );
 };
 
-export default withHeaderName(ReducePage);
+export default withRouter(withHeaderName(ReducePage));
