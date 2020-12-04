@@ -6,10 +6,10 @@ import './authorization.css';
 const Authorization = () => {
   return (
     <div className="authorization">
-      <Link className="authorization__link" to="/">
+      <Link className="authorization__link" to="/login">
         Login
       </Link>
-      <Link className="authorization__link" to="/">
+      <Link className="authorization__link" to="/secret">
         Secret
       </Link>
     </div>
