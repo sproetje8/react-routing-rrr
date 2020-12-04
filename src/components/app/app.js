@@ -19,40 +19,24 @@ function App() {
       <div className='app'>
         <AppHeader />
         <AppBody>
-          <Route
+          <Route 
             path='/'          
             exact
             render={() => <HomePage />} />
-          <Route 
-            path='/reduce'
-            component={ReducePage}
-          />
-          <Route 
-            path='/reduce/:id'
-            render={({match}) => {
-              console.log(match);
-              const { id } = match.params;
-              return (
-                <Text 
-                  pageName='reduce'
-                  controlHeader={id} />);
-            }} />
-          <Route
-            path='/reuse'
-            component={ReusePage}
-            exact />
-          <Route 
-            path='/reuse/:id'
+          <Route path='/reduce' component={ReducePage} />
+          <Route path='/reduce/:id'
             render={({match}) => {
               const { id } = match.params;
-              return <Text pageName='reduce' controlHeader={id} />;
+              return (<Text pageName='reduce' controlHeader={id} />);
             }} />
-          <Route 
-            path='/recycle'
-            component={RecyclePage}
-            exact />
-          <Route 
-            path='/recycle/:id'
+          <Route path='/reuse' component={ReusePage} />
+          <Route path='/reuse/:id'
+            render={({match}) => {
+              const { id } = match.params;
+              return <Text pageName='reuse' controlHeader={id} />;
+            }} />
+          <Route path='/recycle' component={RecyclePage} />
+          <Route path='/recycle/:id'
             render={({match}) => {
               const { id } = match.params;
               return <Text pageName='recycle' controlHeader={id} />;

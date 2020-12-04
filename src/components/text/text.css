@@ -6,3 +6,7 @@
   color: darkslategrey;
   padding: 3vw 15vw;
 }
+
+.text__paragraph {
+  white-space: pre-wrap;
+}

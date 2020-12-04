@@ -6,7 +6,23 @@ import data from '../../data';
 
 const Text = ({ pageName, controlHeader }) => {
   const pageData = data[pageName];
-  const textData = pageData[controlHeader];
+  let dataKey = '';
+
+  switch (controlHeader) {
+    case 'what':
+      dataKey = 'What?';
+      break;
+    case 'how':
+      dataKey = 'How?';
+      break;
+    case 'more-information':
+      dataKey = 'More Information';
+      break;
+    default:
+      break;
+  }
+
+  const textData = pageData[dataKey];
   let text;
   
   if (Array.isArray(textData)) {
