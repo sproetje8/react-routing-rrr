@@ -8,13 +8,13 @@ const Navbar = () => {
   return (
     <ul className="navbar">
       <li className="navbar__item" key="reduce">
-        <Link className="navbar__link" to="/reduce">Reduce</Link>
+        <Link className="navbar__link" to="/reduce/">Reduce</Link>
       </li>
       <li className="navbar__item" key="reuse">
-        <Link className="navbar__link" to="/reuse">Reuse</Link>
+        <Link className="navbar__link" to="/reuse/">Reuse</Link>
       </li>
       <li className="navbar__item" key="recycle">
-        <Link className="navbar__link" to="/recycle">Recycle</Link>
+        <Link className="navbar__link" to="/recycle/">Recycle</Link>
       </li>
     </ul>
   );

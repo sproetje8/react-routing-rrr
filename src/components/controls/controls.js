@@ -15,7 +15,7 @@ const Controls = ({ pageName, history }) => {
         key={header}
         className='controls__item'
         onClick={() => {
-          history.push(`/${pageName}/${controlHeader}`)
+          history.push(controlHeader)
         }}
       >
         {header}
