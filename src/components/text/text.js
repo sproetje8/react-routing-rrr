@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './text.css';
 
 import ErrorIndicator from '../error-indicator';
+import { getInformation } from '../../js/utils.js';
 
 const dataURL = 'https://api.jsonbin.io/b/6000126d8aa7af359da9dbb5';
 
@@ -56,16 +57,7 @@ class Text extends Component {
     const dataKey = keyMap[controlHeader];
 
     const textData = pageData[dataKey];
-    let information;
-    
-    if (Array.isArray(textData)) {
-      const listItems = textData.map((item, index) => {
-          return <li key={index}>{item}</li>;
-        });
-      information = <ul className='text__list'>{listItems}</ul>;
-    } else {
-      information = <p className='text__paragraph'>{textData}</p>;
-    }
+    const information = getInformation(textData);
 
     return (
       <div className='page-content'>
