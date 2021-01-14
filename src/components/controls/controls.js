@@ -33,7 +33,6 @@ class Controls extends Component {
   render() {
     const { isLoading, hasError, data } = this.state;
     const { pageName, history } = this.props;
-    console.log(data);
 
     if (isLoading) {
       return (

@@ -46,21 +46,14 @@ class Text extends Component {
     }
 
     const pageData = data.data[pageName];
-    let dataKey = '';
-  
-    switch (controlHeader) {
-      case 'what':
-        dataKey = 'What?';
-        break;
-      case 'how':
-        dataKey = 'How?';
-        break;
-      case 'more-information':
-        dataKey = 'More Information';
-        break;
-      default:
-        break;
-    }
+
+    const keyMap = {
+      what: 'What?',
+      how: 'How?',
+      'more-information': 'More Information'
+    };
+
+    const dataKey = keyMap[controlHeader];
 
     const textData = pageData[dataKey];
     let text;
