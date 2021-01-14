@@ -56,20 +56,20 @@ class Text extends Component {
     const dataKey = keyMap[controlHeader];
 
     const textData = pageData[dataKey];
-    let pageContent;
+    let information;
     
     if (Array.isArray(textData)) {
       const listItems = textData.map((item, index) => {
           return <li key={index}>{item}</li>;
         });
-      pageContent = <ul className='text__list'>{listItems}</ul>;
+      information = <ul className='text__list'>{listItems}</ul>;
     } else {
-      pageContent = <p className='text__paragraph'>{textData}</p>;
+      information = <p className='text__paragraph'>{textData}</p>;
     }
 
     return (
-      <div className='text'>
-          {pageContent}
+      <div className='page-content'>
+          {information}
       </div>
     );
   }
