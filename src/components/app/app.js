@@ -32,10 +32,7 @@ class App extends Component {
           <AppHeader />
           <AppBody>
             <Switch>
-              <Route 
-                path='/'          
-                exact
-                render={() => <HomePage />} />
+              <Route path='/' exact component={HomePage} />
               <Route path='/reduce/:id?' component={ReducePage} />
               <Route path='/reuse/:id?' component={ReusePage} />
               <Route path='/recycle/:id?' component={RecyclePage} />
