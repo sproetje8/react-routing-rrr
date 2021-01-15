@@ -4,7 +4,6 @@ import { withRouter } from 'react-router-dom';
 import PageHeader from '../page-header';
 import Controls from '../controls';
 import Text from '../text';
-import withHeaderName from '../hoc-helpers/withHeaderName';
 
 const PageTemplate = ({ match, headerText: header, pageName: pageType }) => {
   const headerText = header;
@@ -20,4 +19,4 @@ const PageTemplate = ({ match, headerText: header, pageName: pageType }) => {
   );
 };
 
-export default withRouter(withHeaderName(PageTemplate));
+export default withRouter(PageTemplate);
