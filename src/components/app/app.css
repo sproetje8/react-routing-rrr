@@ -1,0 +1,13 @@
+.app {
+  margin: 0;
+  padding: 0;
+  color: green;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.app-body__header {
+  margin: 0;
+}

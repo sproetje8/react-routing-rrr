@@ -1,0 +1,10 @@
+.app-body {
+  color: black;
+  padding: 2vw;
+  box-sizing: border-box;
+}
+
+.app-body__header {
+  color: green;
+  text-align: center;
+}

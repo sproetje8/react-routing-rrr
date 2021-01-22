@@ -1,0 +1,19 @@
+.app-footer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 2vh;
+  box-sizing: border-box;
+  width: 100vw;
+  height: 16vh;
+  color: cornsilk;
+  background-color: cornsilk;
+  background-image: url('../../assets/grass.svg');
+  background-size: contain;
+  background-repeat: repeat-x;
+  box-sizing: border-box;
+  font-size: 2vw;
+  -webkit-text-stroke: 1.5px darkgreen;
+  margin-top: auto;
+  border-bottom: 2vh solid brown;
+}
