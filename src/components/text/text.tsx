@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { withRouter } from 'react-router-dom';
 
-import './controls.css';
+import './text.css';
+
 import ErrorIndicator from '../error-indicator';
+import { getInformation } from '../../ts/utils';
 
 const dataURL = 'https://api.jsonbin.io/b/6000126d8aa7af359da9dbb5';
 
-const Controls = ({ pageName, history }) => {
+const Text = ({ pageName, controlHeader }) => {
+
   const [ isLoading, setIsLoading ] = useState(true);
   const [ hasError, setHasError ] = useState(false);
   const [ data, setData ] = useState({});
@@ -24,7 +26,7 @@ const Controls = ({ pageName, history }) => {
         setHasError(true);
         setData({});
       });
-  }
+  };
 
   useEffect(() => {
     fetchData();
@@ -39,34 +41,25 @@ const Controls = ({ pageName, history }) => {
   if (hasError) {
     return <ErrorIndicator />;
   }
-  
-  let controlHeaders = [];
 
-  if (data.data) {
-    controlHeaders = Object.keys(data.data[pageName])
-  }
-  
-  const controlItems = controlHeaders.map((header) => {
-    const controlHeader = header.toLowerCase().replace('?', '').replace(' ', '-');
-        
-    return (
-      <li 
-        key={header}
-        className='controls__item'
-        onClick={() => {
-          history.push(controlHeader)
-        }}
-      >
-        {header}
-      </li>
-    );
-  });
+  const pageData = data.data[pageName];
+
+  const keyMap = {
+    what: 'What?',
+    how: 'How?',
+    'more-information': 'More Information'
+  };
+
+  const dataKey = keyMap[controlHeader];
+
+  const textData = pageData[dataKey];
+  const information = getInformation(textData);
 
   return (
-    <nav className='controls'>
-      <ul className='controls__list'>{controlItems}</ul>
-    </nav>
+    <div className='page-content'>
+        {information}
+    </div>
   );
-}
+};
 
-export default withRouter(Controls);
+export default Text;

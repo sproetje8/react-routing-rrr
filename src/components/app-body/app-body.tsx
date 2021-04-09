@@ -2,10 +2,14 @@ import React from 'react';
 
 import './app-body.css';
 
-const AppBody = (props) => {
+type ComponentProps = {
+  children: React.ReactNode;
+};
+
+const AppBody = ({ children }: ComponentProps) => {
   return (
     <main className="app-body">
-      {props.children}
+      {children}
     </main>);
 };
 

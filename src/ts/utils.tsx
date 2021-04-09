@@ -1,9 +1,9 @@
-const getInformation = (textData) => {
+const getInformation = (textData:object) => {
   let information;
 
   if (Array.isArray(textData)) {
     const listItems = textData.map((item, index) => {
-        return <li key={index}>{item}</li>;
+        return `<li key={index}>{item}</li>`;
       });
     information = <ul className='text__list'>{listItems}</ul>;
   } else {
