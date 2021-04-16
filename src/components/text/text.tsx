@@ -4,14 +4,21 @@ import './text.css';
 
 import ErrorIndicator from '../error-indicator';
 import { getInformation } from '../../ts/utils';
+import { EPageName, EControlHeader } from '../../enums';
+import { IDataBackend, IData, IPageKeys } from '../../interfaces';
 
 const dataURL = 'https://api.jsonbin.io/b/6000126d8aa7af359da9dbb5';
 
-const Text = ({ pageName, controlHeader }) => {
+type TextProps = {
+  pageName: EPageName;
+  controlHeader: EControlHeader;
+}
+
+const Text = ({ pageName, controlHeader }: TextProps) => {
 
   const [ isLoading, setIsLoading ] = useState(true);
   const [ hasError, setHasError ] = useState(false);
-  const [ data, setData ] = useState({});
+  const [ data, setData ] = useState<IDataBackend | {}>({});
 
   const fetchData = () => {
     fetch(dataURL)
@@ -42,7 +49,7 @@ const Text = ({ pageName, controlHeader }) => {
     return <ErrorIndicator />;
   }
 
-  const pageData = data.data[pageName];
+  const pageData: IPageKeys = ((data as IDataBackend)?.data as IData)[pageName];
 
   const keyMap = {
     what: 'What?',
@@ -50,7 +57,7 @@ const Text = ({ pageName, controlHeader }) => {
     'more-information': 'More Information'
   };
 
-  const dataKey = keyMap[controlHeader];
+  const dataKey: string = keyMap[controlHeader];
 
   const textData = pageData[dataKey];
   const information = getInformation(textData);

@@ -1,9 +1,7 @@
 import { EPageName } from './enums';
 
 export interface IPageKeys {
-  ['What?']: string;
-  ['How?']: string | string[];
-  ['More Information']: string | string[];
+  [EPageName: string]: string | string[];
 }
 
 export interface IDataBackend {

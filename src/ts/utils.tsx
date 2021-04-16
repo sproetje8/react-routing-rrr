@@ -1,4 +1,6 @@
-const getInformation = (textData:object) => {
+import { TextDataType } from '../types';
+
+const getInformation = (textData: TextDataType) => {
   let information;
 
   if (Array.isArray(textData)) {
