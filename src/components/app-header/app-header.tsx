@@ -6,7 +6,7 @@ import Navbar from '../navbar';
 import Home from '../home';
 import Authorization from '../authorization';
 
-const AppHeader = () => {
+const AppHeader = (): JSX.Element => {
   return (
     <div className="app-header">
       <Navbar />

@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
+import { dataURL } from '../../ts/mock-backend-service';
+
 import './text.css';
 
 import ErrorIndicator from '../error-indicator';
 import { getInformation } from '../../ts/utils';
 import { EPageName, EControlHeader } from '../../enums';
 import { IDataBackend, IData, IPageKeys } from '../../interfaces';
-
-const dataURL = 'https://api.jsonbin.io/b/6000126d8aa7af359da9dbb5';
 
 type TextProps = {
   pageName: EPageName;
@@ -18,7 +18,7 @@ const Text = ({ pageName, controlHeader }: TextProps) => {
 
   const [ isLoading, setIsLoading ] = useState(true);
   const [ hasError, setHasError ] = useState(false);
-  const [ data, setData ] = useState<IDataBackend | {}>({});
+  const [ data, setData ] = useState<IDataBackend | {}>({data: { 'reduce': '', 'reuse': '', 'recycle': '' }});
 
   const fetchData = () => {
     fetch(dataURL)
@@ -58,6 +58,8 @@ const Text = ({ pageName, controlHeader }: TextProps) => {
   };
 
   const dataKey: string = keyMap[controlHeader];
+
+  if (dataKey === '') return <div>No data</div>;
 
   const textData = pageData[dataKey];
   const information = getInformation(textData);

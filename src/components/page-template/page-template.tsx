@@ -1,20 +1,20 @@
 import React from 'react';
-import { withRouter, match } from 'react-router-dom';
+import { withRouter, RouteComponentProps, match } from 'react-router-dom';
 
 import PageHeader from '../page-header';
 import Controls from '../controls';
 import Text from '../text';
+import { EPageName } from '../../enums';
 
-type PageTemplateProps = {
+type PageTemplateProps = RouteComponentProps & {
   match: match;
   headerText: string;
-  pageName: string;
+  pageName: EPageName;
 }
 
-const PageTemplate: React.FC<PageTemplateProps> = ({ match, headerText: header, pageName: pageType }) => {
-  const headerText = header;
-  const pageName = pageType;
-  const { id } = match.params;
+const PageTemplate = (
+  { match, headerText, pageName }: PageTemplateProps): JSX.Element => {
+  const { id } = match.params as any;
 
   return (
     <>

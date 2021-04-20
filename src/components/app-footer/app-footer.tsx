@@ -2,7 +2,7 @@ import React from 'react';
 
 import './app-footer.css';
 
-const AppFooter = () => {
+const AppFooter = ():JSX.Element => {
   return (
     <footer className="app-footer">
       &copy; Copyright 2020 Evelien Kulikova

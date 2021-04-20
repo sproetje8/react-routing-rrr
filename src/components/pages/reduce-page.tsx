@@ -1,10 +1,11 @@
 import React from 'react';
+import { EPageName } from '../../enums';
 
 import PageTemplate from '../page-template';
 
 const ReducePage = () => {
   const headerText = 'Let\'s reduce waste!';
-  const pageName = 'reduce';
+  const pageName: EPageName = EPageName.REDUCE;
 
   return (
     <PageTemplate

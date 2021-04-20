@@ -1,7 +1,12 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 
-const LoginPage = ({ isLoggedIn, onLogin }) => {
+interface LoginPageProps {
+  isLoggedIn: boolean;
+  onLogin: () => void;
+}
+
+const LoginPage = ({ isLoggedIn, onLogin }: LoginPageProps) => {
 
   if (isLoggedIn) {
     return <Redirect to='/' />

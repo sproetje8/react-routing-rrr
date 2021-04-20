@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import './authorization.css';
 
-const Authorization = () => {
+const Authorization = (): JSX.Element => {
   return (
     <div className="authorization">
       <Link className="authorization__link" to="/login">

@@ -6,15 +6,14 @@ import ErrorIndicator from '../error-indicator';
 
 import { ControlsProps } from '../../types';
 import { IDataBackend, IData } from '../../interfaces';
-
-const dataURL = 'https://api.jsonbin.io/b/6000126d8aa7af359da9dbb5';
+import { dataURL } from '../../ts/mock-backend-service';
 
 type PropsType = RouteComponentProps & ControlsProps;
 
 const Controls = ({ pageName, history }: PropsType) => {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
-  const [data, setData] = useState<IDataBackend | {}>({});
+  const [data, setData] = useState<IDataBackend | {}>({data: { 'reduce': '', 'reuse': '', 'recycle': ''}});
 
   const fetchData = () => {
     fetch(dataURL)
